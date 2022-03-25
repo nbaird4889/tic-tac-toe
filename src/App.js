@@ -7,24 +7,38 @@ import { calculateWinner } from './components/Patterns';
 function App() {
   const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""])
   const [player, setPlayer] = useState("X")
-  const winner = calculateWinner(board)
+  let winner = calculateWinner(board)
+  let tie = "It's a tie"
+
 
 
   const chooseSquare = (square) => {
+    checkForTie();
     setBoard(board.map((val, idx) => {
       if (idx === square && val === "") {
         return player
-      }
+      } 
       return val
     }));
-    
 
     if (player === "X") {
       setPlayer("O")
     } else {
       setPlayer("X")
     }
+  }
 
+  const checkForTie = () => {
+    let filled = true;
+    board.forEach((square) => {
+      if (square === "") {
+        filled = false
+      }
+    })
+
+    if (filled) {
+      winner = tie
+    }
   }
 
   return (
@@ -35,6 +49,7 @@ function App() {
             chooseSquare={() => {
               chooseSquare(0)
             }}
+
           />
           <Square 
             val={board[1]}
