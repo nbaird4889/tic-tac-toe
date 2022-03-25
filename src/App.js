@@ -1,11 +1,14 @@
 import './App.css';
 import {useState} from 'react'
 import Square from "./components/Square.js"
+import { calculateWinner } from './components/Patterns';
 
 
 function App() {
   const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""])
   const [player, setPlayer] = useState("X")
+  const winner = calculateWinner(board)
+
 
   const chooseSquare = (square) => {
     setBoard(board.map((val, idx) => {
@@ -14,12 +17,14 @@ function App() {
       }
       return val
     }));
+    
 
     if (player === "X") {
       setPlayer("O")
     } else {
       setPlayer("X")
     }
+
   }
 
   return (
@@ -79,6 +84,8 @@ function App() {
               chooseSquare(8)
             }}
           />
+          <button onClick={() => {setBoard(["", "", "", "", "", "", "", "", ""])}}>Start New Game</button>
+          <p>The winner is: {winner}</p>
       </div>
     </div>
   );
