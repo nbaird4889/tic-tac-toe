@@ -43,6 +43,12 @@ function App() {
 
   return (
     <div className="App">
+      <h1>tic tac toe</h1>
+      <div className="winner">
+        {winner ? <h2>The winner is: {winner}</h2> : ""}
+        {!winner ? <h3>It's {player}'s turn</h3> : ""}
+      </div>
+      <div className="game-board">
       <div className="board">
           <Square 
             val={board[0]}
@@ -99,8 +105,10 @@ function App() {
               chooseSquare(8)
             }}
           />
-          <button onClick={() => {setBoard(["", "", "", "", "", "", "", "", ""])}}>Start New Game</button>
-          <p>The winner is: {winner}</p>
+          </div>
+            <div className="button">
+            <button onClick={() => {setBoard(["", "", "", "", "", "", "", "", ""])}}>Start New Game</button>
+            </div>
       </div>
     </div>
   );

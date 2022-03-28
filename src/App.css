@@ -1,38 +1,105 @@
 .App {
   width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background: #283845;
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  color: #F1F0EA;
+  padding-bottom: 20px;
+}
+
+h3 {
+  text-align: center;
+  font-size: 38px;
+  color: #F1F0EA;
+  padding: 30px 20px 30px 20px;
+  background-color: #339989;
+  margin: 0 200px 50px 200px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 38px;
+  color: #F1F0EA;
+  padding: 30px 20px 30px 20px;
+  margin: 0 200px 50px 200px;
+  background-color:#A04668;
+}
+
+.game-board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 .board {
   display: grid;
   grid-template-columns: 33.33% 33.33% 33.33%;
   grid-template-rows: 33.33% 33.33% 33.33%;
-  max-width: 500px;
-  background-color: aquamarine;
+  max-width: 800px;
+  background-color: #950952;
 }
 
 .square {
-  border: 1px solid white;
-  min-width: 100px;
-  min-height: 100px;
+  border: 2px solid white;
+  min-width: 150px;
+  min-height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 50px;
   cursor: pointer;
+  color: #F1F0EA;
 }
 
 .square:active {
-  background-color: blue;
+  background-color: #A04668;
+}
+
+button {
+  background-color: #339989;
+  color: #F1F0EA;
+  font-weight: bold;
+  font-size: 22px;
+  padding: 10px 30px 10px 30px;
+  width: 300px;
+  border: 1px solid #F1F0EA;
+}
+
+button:hover {
+  background-color: #F1F0EA;
+  color: #339989;
+}
+
+.button {
+  padding-top: 40px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 650px) {
+  h3 {
+    margin: 0 80px 50px 80px;
+  }
+  
+  h2 {
+    margin: 0 80px 50px 80px;
+  }
+
+  .square {
+    min-width: 100px;
+    min-height: 100px;
+  }
 }
 
 
